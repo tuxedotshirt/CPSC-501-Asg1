@@ -189,121 +189,14 @@ public class InventoryManager {
         	selection = input.nextInt();
         	switch(selection) {
         	case 1:
-        		truck = new Truck();
-        		System.out.print("Vin: ");
-        		selection = input.nextInt();
-                truck.setVin(selection);
-                //System.out.println();
-                input.nextLine();
-                
-                System.out.print("Make: ");
-                str = input.nextLine();
-                truck.setMake(str);
-                
-                
-                System.out.print("Model: ");
-                str = input.nextLine();
-                truck.setModel(str);
-                
-
-                System.out.print("Number of drive wheels: ");
-                selection = input.nextInt();
-                truck.setDriveWheels(selection);
-                //System.out.println();
-                
-                System.out.print("Carrying capacity: ");
-                selection = input.nextInt();
-                truck.setCarryingCapacityLbs(selection);
-                //System.out.println();
-                
-                System.out.print("Number of doors: ");
-                selection = input.nextInt();
-                truck.setNumDoors(selection);
-                //System.out.println();
-                
-                System.out.print("Number of passengers: ");
-                selection = input.nextInt();
-                truck.setNumPassengers(selection);
-                //System.out.println();
-                
-                truckList.add(truck);
+        		addTruck(truckList, input);
         		break;
         	case 2:
-        		van = new Van();
-        		System.out.print("Vin: ");
-        		selection = input.nextInt();
-                van.setVin(selection);
-                input.nextLine();
-                
-                System.out.print("Make: ");
-                str = input.nextLine();
-                van.setMake(str);
-                
-                System.out.print("Model: ");
-                str = input.nextLine();
-                van.setModel(str);
-
-                System.out.print("Sliding door? 1:yes, 2:no");
-                selection = input.nextInt();
-                if(selection == 1)
-                	van.setSlidingDoor(true);
-                else if(selection == 2)
-                	van.setSlidingDoor(false);
-                input.nextLine();
-                
-                System.out.print("Number of doors: ");
-                selection = input.nextInt();
-                van.setNumDoors(selection);
-                input.nextLine();
-                
-                System.out.print("Number of passengers: ");
-                selection = input.nextInt();
-                van.setNumPassengers(selection);
-                input.nextLine();
-                
-                vanList.add(van);
+        		addVan(vanList, input);
         		break;
         	case 3:
-        		car = new Car();
-        		System.out.print("Vin: ");
-        		selection = input.nextInt();
-                car.setVin(selection);
-                input.nextLine();
-                
-                System.out.print("Make: ");
-                str = input.nextLine();
-                car.setMake(str);
-                
-                System.out.print("Model: ");
-                str = input.nextLine();
-                car.setModel(str);
-
-                System.out.print("Rear hatch? 1:yes, 2:no");
-                selection = input.nextInt();
-                if(selection == 1)
-                	car.setHasRearHatch(true);
-                else if(selection == 2)
-                	car.setHasRearHatch(false);
-                input.nextLine();
-                
-                System.out.print("Horsepower: ");
-                selection = input.nextInt();
-                car.setHorsepower(selection);
-                input.nextLine();
-                
-                System.out.print("Number of doors: ");
-                selection = input.nextInt();
-                car.setNumDoors(selection);
-                input.nextLine();
-                
-                System.out.print("Number of passengers: ");
-                selection = input.nextInt();
-                car.setNumPassengers(selection);
-                input.nextLine();
-                
-                carList.add(car);
+        		addCar(carList, input);
         		break;
-        	
         	}
         	break;
         case 3: 
@@ -351,6 +244,136 @@ public class InventoryManager {
         
         }
     }
+
+	private static int addTruck(List<Truck> truckList, Scanner input) {
+		int selection;
+		String str;
+		Truck truck;
+		truck = new Truck();
+		System.out.print("Vin: ");
+		selection = input.nextInt();
+		truck.setVin(selection);
+		//System.out.println();
+		input.nextLine();
+		
+		System.out.print("Make: ");
+		str = input.nextLine();
+		truck.setMake(str);
+		
+		
+		System.out.print("Model: ");
+		str = input.nextLine();
+		truck.setModel(str);
+		
+
+		System.out.print("Number of drive wheels: ");
+		selection = input.nextInt();
+		truck.setDriveWheels(selection);
+		//System.out.println();
+		
+		System.out.print("Carrying capacity: ");
+		selection = input.nextInt();
+		truck.setCarryingCapacityLbs(selection);
+		//System.out.println();
+		
+		System.out.print("Number of doors: ");
+		selection = input.nextInt();
+		truck.setNumDoors(selection);
+		//System.out.println();
+		
+		System.out.print("Number of passengers: ");
+		selection = input.nextInt();
+		truck.setNumPassengers(selection);
+		//System.out.println();
+		
+		truckList.add(truck);
+		return selection;
+	}
+
+	private static int addCar(List<Car> carList, Scanner input) {
+		int selection;
+		String str;
+		Car car;
+		car = new Car();
+		System.out.print("Vin: ");
+		selection = input.nextInt();
+		car.setVin(selection);
+		input.nextLine();
+		
+		System.out.print("Make: ");
+		str = input.nextLine();
+		car.setMake(str);
+		
+		System.out.print("Model: ");
+		str = input.nextLine();
+		car.setModel(str);
+
+		System.out.print("Rear hatch? 1:yes, 2:no");
+		selection = input.nextInt();
+		if(selection == 1)
+			car.setHasRearHatch(true);
+		else if(selection == 2)
+			car.setHasRearHatch(false);
+		input.nextLine();
+		
+		System.out.print("Horsepower: ");
+		selection = input.nextInt();
+		car.setHorsepower(selection);
+		input.nextLine();
+		
+		System.out.print("Number of doors: ");
+		selection = input.nextInt();
+		car.setNumDoors(selection);
+		input.nextLine();
+		
+		System.out.print("Number of passengers: ");
+		selection = input.nextInt();
+		car.setNumPassengers(selection);
+		input.nextLine();
+		
+		carList.add(car);
+		return selection;
+	}
+
+	private static int addVan(List<Van> vanList, Scanner input) {
+		int selection;
+		String str;
+		Van van;
+		van = new Van();
+		System.out.print("Vin: ");
+		selection = input.nextInt();
+		van.setVin(selection);
+		input.nextLine();
+		
+		System.out.print("Make: ");
+		str = input.nextLine();
+		van.setMake(str);
+		
+		System.out.print("Model: ");
+		str = input.nextLine();
+		van.setModel(str);
+
+		System.out.print("Sliding door? 1:yes, 2:no");
+		selection = input.nextInt();
+		if(selection == 1)
+			van.setSlidingDoor(true);
+		else if(selection == 2)
+			van.setSlidingDoor(false);
+		input.nextLine();
+		
+		System.out.print("Number of doors: ");
+		selection = input.nextInt();
+		van.setNumDoors(selection);
+		input.nextLine();
+		
+		System.out.print("Number of passengers: ");
+		selection = input.nextInt();
+		van.setNumPassengers(selection);
+		input.nextLine();
+		
+		vanList.add(van);
+		return selection;
+	}
 	
 
     
