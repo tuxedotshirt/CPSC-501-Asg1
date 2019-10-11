@@ -311,4 +311,71 @@ public class ListManager {
     	else System.out.println("Car list empty");
     	System.out.println();
     }
+
+    public void deleteItem() {
+    	System.out.println("Delete from what list?");
+    	System.out.println("1. Trucks");
+    	System.out.println("2. Vans");
+    	System.out.println("3. Cars");
+    	System.out.println("4. Quit");
+    	int selection;
+    	Scanner input = new Scanner(System.in);
+    	selection = input.nextInt();
+    	System.out.println(selection);
+    	switch(selection) {
+    	case 1:
+    		System.out.print("Delete what index? ");
+    		selection = input.nextInt();
+    		if(selection < truckList.size()) {
+    		truckList.remove(selection);
+    		System.out.println("Index " + selection + " removed.");
+    		}
+    		else System.out.println("Invalid selection.");
+    		break;
+    	case 2:
+    		System.out.print("Delete what index? ");
+    		selection = input.nextInt();
+    		if(selection < truckList.size()) {
+    		vanList.remove(selection);
+    		System.out.println("Index " + selection + " removed.");
+    		}
+    		else System.out.println("Invalid selection.");
+    		break;
+    	case 3:
+    		System.out.print("Delete what index? ");
+    		selection = input.nextInt();
+    		if(selection < truckList.size()) {
+    		carList.remove(selection);
+    		System.out.println("Index " + selection + " removed.");
+    		}
+    		else System.out.println("Invalid selection.");
+    		break;
+    	case 4: 
+    		break;
+    	default:
+    		deleteItem();
+    	}
+    	
+    }
+
+    public void addVehicle() {
+    	Scanner input = new Scanner(System.in);
+    	System.out.println("Add to what list?");
+    	System.out.println("1. Trucks");
+    	System.out.println("2. Vans");
+    	System.out.println("3. Cars");
+    	
+    	int selection = input.nextInt();
+    	switch(selection) {
+    	case 1:
+    		createTruck();
+    		break;
+    	case 2:
+    		createVan();
+    		break;
+    	case 3:
+    		createCar();
+    }
+    }
+    
 }
