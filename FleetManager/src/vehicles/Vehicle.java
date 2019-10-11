@@ -7,6 +7,8 @@ public class Vehicle extends Registration {
 		private String model = null;
 		private int numPassengers = 0;
 		private int numDoors = 0;
+		public String owner = null;
+		public String licencePlate = null;
 				
 		public int getVin() {
 			return vin;

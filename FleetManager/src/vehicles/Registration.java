@@ -19,4 +19,8 @@ public class Registration {
 	public void setLicencePlate(String plate) {
 		licencePlate = plate;
 	}
+	
+	public void sellVehicle() {
+		
+	}
 }

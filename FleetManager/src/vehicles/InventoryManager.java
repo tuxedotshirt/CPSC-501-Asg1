@@ -6,6 +6,7 @@ public class InventoryManager {
         int selection = 0;
         Scanner input = new Scanner(System.in);
         ListManager inventory = new ListManager();
+        Registration register = new Registration();
         
         while(selection!=4) {
         	printMenu();
@@ -24,6 +25,7 @@ public class InventoryManager {
         	inventory.deleteItem();
         	break;
         case 4:
+        	register.sellVehicle();
         	break;
         default:
         	break;
