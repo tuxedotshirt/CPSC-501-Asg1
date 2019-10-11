@@ -9,12 +9,11 @@ import java.lang.reflect.Modifier;
 public class InventoryManager {
 	public static void main(String args[]) {
         int selection = 0;
-        Scanner scanner = null;
-        String str;
+        Scanner input = new Scanner(System.in);
+        
         List<Truck> truckList = new ArrayList<Truck>();
         List<Van> vanList = new ArrayList<Van>();
         List<Car> carList = new ArrayList<Car>();
-        int number = 1;
         
         Truck truck = new Truck();
         truck.setVin(1);
@@ -56,7 +55,7 @@ public class InventoryManager {
         carList.add(car);
         
         
-        Scanner input = new Scanner(System.in);
+
         while(selection!=4) {
         System.out.println("Choose an option");
         System.out.println("----------------\n");
@@ -189,7 +188,9 @@ public class InventoryManager {
         	selection = input.nextInt();
         	switch(selection) {
         	case 1:
-        		addTruck(truckList, input);
+        		List<Object> paramList = new ArrayList<Object>();
+        		paramList = addTruckMenu();
+        		addTruck(truckList, paramList);
         		break;
         	case 2:
         		addVan(vanList, input);
@@ -244,7 +245,71 @@ public class InventoryManager {
         
         }
     }
+	
+	private static List<Object> addTruckMenu() {
+		List<Object> paramList = new ArrayList<Object>();
+		int selection;
+		String str;
+		Scanner input = new Scanner(System.in);
+		//Scanner input = null;
+		
+		System.out.print("Vin: ");
+		selection = input.nextInt();
+		paramList.add(selection);
+		
+		input.nextLine();
+		
+		System.out.print("Make: ");
+		str = input.nextLine();
+		//truck.setMake(str);
+		paramList.add(str);
+		
+		System.out.print("Model: ");
+		str = input.nextLine();
+		paramList.add(str);
+		
+		System.out.print("Number of drive wheels: ");
+		selection = input.nextInt();
+		paramList.add(selection);
+		
+		System.out.print("Carrying capacity: ");
+		selection = input.nextInt();
+		paramList.add(selection);
+		
+		System.out.print("Number of doors: ");
+		selection = input.nextInt();
+		paramList.add(selection);
+		
+		System.out.print("Number of passengers: ");
+		selection = input.nextInt();
+		paramList.add(selection);
+		input.close();
+		
+		return paramList;
+	}
+	
+	private static void addTruck(List<Truck> truckList, List<Object> paramList) {
+		Truck truck;
+		truck = new Truck();
 
+		truck.setVin((int) paramList.get(0));
+
+		truck.setMake(paramList.get(1).toString());
+		
+		truck.setModel(paramList.get(2).toString());
+		
+		truck.setDriveWheels((int) paramList.get(3));
+		
+		truck.setCarryingCapacityLbs((int) paramList.get(4));
+		
+		truck.setNumDoors((int) paramList.get(5));
+
+		truck.setNumPassengers((int) paramList.get(6));
+
+		truckList.add(truck);
+	}
+	
+	/*
 	private static int addTruck(List<Truck> truckList, Scanner input) {
 		int selection;
 		String str;
@@ -253,43 +318,38 @@ public class InventoryManager {
 		System.out.print("Vin: ");
 		selection = input.nextInt();
 		truck.setVin(selection);
-		//System.out.println();
+
 		input.nextLine();
 		
 		System.out.print("Make: ");
 		str = input.nextLine();
 		truck.setMake(str);
 		
-		
 		System.out.print("Model: ");
 		str = input.nextLine();
 		truck.setModel(str);
 		
-
 		System.out.print("Number of drive wheels: ");
 		selection = input.nextInt();
 		truck.setDriveWheels(selection);
-		//System.out.println();
 		
 		System.out.print("Carrying capacity: ");
 		selection = input.nextInt();
 		truck.setCarryingCapacityLbs(selection);
-		//System.out.println();
-		
+
 		System.out.print("Number of doors: ");
 		selection = input.nextInt();
 		truck.setNumDoors(selection);
-		//System.out.println();
-		
+
 		System.out.print("Number of passengers: ");
 		selection = input.nextInt();
 		truck.setNumPassengers(selection);
-		//System.out.println();
+
 		
 		truckList.add(truck);
 		return selection;
 	}
-
+*/
 	private static int addCar(List<Car> carList, Scanner input) {
 		int selection;
 		String str;
