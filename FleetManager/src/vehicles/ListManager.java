@@ -8,6 +8,7 @@ public class ListManager {
     List<Truck> truckList = new ArrayList<Truck>();
     List<Van> vanList = new ArrayList<Van>();
     List<Car> carList = new ArrayList<Car>();
+    List<Object> soldVehicles = new ArrayList<Object>();
     
     public void createTruck(){
     	List<Object> paramList = new ArrayList<Object>();
@@ -200,7 +201,7 @@ public class ListManager {
 		carList.add(car);
     }
 
-    public void printList() {
+    public void printInventoryList() {
     	System.out.println("**********TRUCKS**********");
     	if(!truckList.isEmpty()) {
     	for(int i = 0; i < truckList.size(); i++){
@@ -312,7 +313,7 @@ public class ListManager {
     	System.out.println();
     }
 
-    public void deleteItem() {
+    public void deleteVehicle() {
     	System.out.println("Delete from what list?");
     	System.out.println("1. Trucks");
     	System.out.println("2. Vans");
@@ -353,7 +354,7 @@ public class ListManager {
     	case 4: 
     		break;
     	default:
-    		deleteItem();
+    		deleteVehicle();
     	}
     	
     }
@@ -378,4 +379,51 @@ public class ListManager {
     }
     }
     
+    public void sellVehicle() {
+    	System.out.println("Sell from what list?");
+    	System.out.println("1. Trucks");
+    	System.out.println("2. Vans");
+    	System.out.println("3. Cars");
+    	System.out.println("4. Quit");
+    	int selection;
+    	Scanner input = new Scanner(System.in);
+    	selection = input.nextInt();
+    	System.out.println(selection);
+    	switch(selection) {
+    	case 1:
+    		System.out.print("Sell what index? ");
+    		selection = input.nextInt();
+    		if(selection < truckList.size()) {
+    			soldVehicles.add(truckList.get(selection));
+    		truckList.remove(selection);
+    		System.out.println("Index " + selection + " sold.");
+    		}
+    		else System.out.println("Invalid selection.");
+    		break;
+    	case 2:
+    		System.out.print("Sell what index? ");
+    		selection = input.nextInt();
+    		if(selection < vanList.size()) {
+    			soldVehicles.add(vanList.get(selection));
+    		vanList.remove(selection);
+    		System.out.println("Index " + selection + " sold.");
+    		}
+    		else System.out.println("Invalid selection.");
+    		break;
+    	case 3:
+    		System.out.print("Sell what index? ");
+    		selection = input.nextInt();
+    		if(selection < carList.size()) {
+    			soldVehicles.add(vanList.get(selection));
+    			carList.remove(selection);
+    		System.out.println("Index " + selection + " sold.");
+    		}
+    		else System.out.println("Invalid selection.");
+    		break;
+    	case 4: 
+    		break;
+    	default:
+    		sellVehicle();
+    	}
+    }
 }

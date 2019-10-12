@@ -1,6 +1,6 @@
 package vehicles;
 
-public class Vehicle extends Registration {
+public class Vehicle {
 
 		private int vin = 0;
 		private String make = null;
