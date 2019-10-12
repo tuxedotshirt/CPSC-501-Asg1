@@ -15,13 +15,13 @@ public class InventoryManager {
         switch(selection) {
         	
         case 1: 
-        	inventory.printList();
+        	inventory.printInventoryList();
         	break;
         case 2: 
         	inventory.addVehicle();
         	break;
         case 3: 
-        	inventory.deleteItem();
+        	inventory.deleteVehicle();
         	break;
         case 4:
         	inventory.sellVehicle();
